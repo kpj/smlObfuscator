@@ -1,0 +1,31 @@
+#button {
+	margin-left: 199px;
+	margin-right:199px;
+	border:1px solid #000;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	margin-left: 201px;
+	margin-right:201px;
+}
+html>body #button {
+	margin-left: 201px;
+	margin-right:201px;
+}
+
+#raw {
+	position: absolute;
+	left:10px;
+	top:50px;
+	width:200px;
+	background:#fff;
+	border:1px solid #000;
+}
+
+#obfuscated {
+	position: absolute;
+	right:10px;
+	top:50px;
+	width:200px;
+	background:#fff;
+	border:1px solid #000;
+}
