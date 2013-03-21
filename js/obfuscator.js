@@ -2,7 +2,8 @@ var getRandName = function() {
 	var pool = ["0", "O"];
 	var name = "";
 
-	var length = Math.floor(Math.random() * 20) + 5;
+	//var length = Math.floor(Math.random() * 20) + 5;
+	var length = 10;
 	for (var i = 0 ; i < length ; i++) {
 		name += pool[Math.floor(Math.random() * pool.length)];
 	}
@@ -35,7 +36,6 @@ var obfuscate = function() {
 	substitutionDict = [];
 
 	raw = raw.toUpperCase();
-	raw += getRandName();
 
 	$("#obfuscated").val(raw);
 }
