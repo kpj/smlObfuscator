@@ -58,6 +58,6 @@ var randomComments = [
 	'"Well," says the balloonist, "everything you have told me is technically correct, but It\'s of no use to anyone." \n'+
 	'The man below replies, "You must work in management." \n'+
 	'"I do," replies the balloonist, "But how\'d you know?" \n'+
-	'"Well", says the man, "you don’t know where you are or where you’re going, but you expect me to be able to help. You’re in the same position you were before we met, but now it’s my fault." \n'
+	'"Well", says the man, "you don\'t know where you are or where you’re going, but you expect me to be able to help. You\'re in the same position you were before we met, but now it\'s my fault." \n'
 
 ];

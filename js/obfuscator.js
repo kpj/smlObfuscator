@@ -20,6 +20,8 @@ var SMLKeyWords =
 	"LESS",
 	"EQUAL",
 	"GREATER",
+
+	"o",
 	
 
 	/* branching & scoping */
@@ -84,6 +86,23 @@ var SMLKeyWords =
 	"array",
 	"vector",
 
+	"order",
+	
+	/* exceptions */
+	
+	"Bind",
+	"Chr",
+	"Div",
+	"Domain", 
+	"Empty",
+	"Fail",
+	"Match",
+	"Option",
+	"Overflow", 
+	"Size",
+	"Span",
+	"Subscript",
+
 	/* misc */
 	"op",
 	"of",
@@ -104,7 +123,38 @@ var SMLKeyWords =
 	"print",
 	"substring",
 	"revserse",
-	"exn"
+	"exn",
+
+
+	"app",
+	"abs",
+	"before",
+	"ceil",
+	"chr",
+	"concat",
+	"exnMessage",
+	"exnName",
+	"floor",
+	"getOpt",
+	"hd",
+	"ignore",
+	"implode",
+	"isSome",
+	"not",
+	"null",
+	"o",
+	"ord",
+	"print",
+	"rev",
+	"round",
+	"size",
+	"str",
+	"substring",
+	"tl",
+	"trunc",
+	"use",
+	"valOf",
+	"vector"
 ];
 
 /*
