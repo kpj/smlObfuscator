@@ -3,19 +3,49 @@
 }
 
 #raw {
-	position: absolute;
-	left:10px;
-	top:50px;
-	width:200px;
+	width: 100%;
+	height: 100%; 
 	background:#fff;
 	border:1px solid #000;
 }
 
 #obfuscated {
-	position: absolute;
-	right:10px;
-	top:50px;
-	width:200px;
+	width: 100%;
+	height: 100%; 
 	background:#fff;
 	border:1px solid #000;
+}
+
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+}
+
+#container {
+	position: relative;
+	height: 100%;
+	width: 100%; 
+	overflow: auto;
+}
+
+#topbar {
+	height: 1em;  
+}
+
+#left, #right {
+	position: absolute;
+	height: 80%; 
+	margin-top: 1em;
+	width: 40%;
+	overflow: auto;
+	
+}
+
+#left {
+	left: 0px;
+}
+
+#right {
+	right: 0px; 
 }
