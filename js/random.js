@@ -23,7 +23,7 @@ var randomComments = [
 	"from The Book of Mozilla. ",
 	"smaller on the outside. ",
 	"cookies are delicious delicacies. ",
-	"Everything besides " + navigator.platform + "sucks!",
+	"Everything besides " + navigator.platform + " sucks!",
 	(navigator.javaEnabled()) ? "No risk no fun!" : "I care about my data.", // probably only funny if one sees the code..
 	"BASPINGO! ",
 	"When does the narwhal bacon?",
