@@ -1,7 +1,6 @@
 /* a bunch of random comments. Feel free to add more. */
 var randomComments = [
 
-
 	/* a bunch of random stuff I just had in my mind. */
 	"2 am in the IRC Quiet Study Area",
 	"The GIGO Principle: Garbage In, Garbage Out ",
@@ -12,7 +11,7 @@ var randomComments = [
 	"This is an epic comment. ",
 	"Nothing here. ",
 	"I'm just a random comment. ",
-	"I support "+navigator.userAgent,
+	"I support " + navigator.userAgent,
 	"I got to stare at the slides more. ",
 	"It works!",
 	"Causes a kernel panic. ",
@@ -24,10 +23,20 @@ var randomComments = [
 	"from The Book of Mozilla. ",
 	"smaller on the outside. ",
 	"cookies are delicious delicacies. ",
+	"Everything besides " + navigator.platform + "sucks!",
+	(navigator.javaEnabled()) ? "No risk no fun!" : "I care about my data.", // probably only funny if one sees the code..
+	"BASPINGO! ",
+	"When does the narwhal bacon?",
 
 
 	/* jokes */
 
+	"Why do computer programmers confuse Halloween and Christmas?\n"+
+	"Because OCT 31 = DEC 25.",
+	"An SQL query walks up to two tables and asks, \"May I join you?\"",
+	"Helium walks into a bar and orders a beer, the bartender says, \"Sorry, we don\'t serve noble gases here.\" He doesn\'t react.",
+	"A TCP packet walks into a bar and says, \"I\'d like a beer.\" The bartender replies, \"You want a beer?\" The TCP packet replies, \"Yes, I\'d like a beer.\"",
+	"Freud believed that only one thing came between fear and sex. He called it fünf.",
 	"Mathematician: Pi is the ratio of the circumference of a circle to its diameter. \n"+
 	"Engineer: Pi is about 22/7. \n"+
 	"Physicist: Pi is 3.14159 plus or minus 0.000005 \n"+
