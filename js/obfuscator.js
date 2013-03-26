@@ -22,7 +22,7 @@ var SMLKeyWords =
 	"GREATER",
 
 	"o",
-	
+	"and",
 
 	/* branching & scoping */
 	
