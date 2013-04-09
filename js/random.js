@@ -27,6 +27,7 @@ var randomComments = [
 	(navigator.javaEnabled()) ? "No risk no fun!" : "I care about my data.", // probably only funny if one sees the code..
 	"BASPINGO! ",
 	"When does the narwhal bacon?",
+	"There were 11 people in GenCS this Tuesday. New record!", 
 
 
 	/* jokes */
