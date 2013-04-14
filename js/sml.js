@@ -57,7 +57,7 @@ var SML = function(code, options){
 	
 	if(simpleOptimize){
 		replacedCode = SML.stringOptimizeE(replacedCode, function(chunk){
-			var frees = ["|",",", ";", "=", "+", "*", "!", ":", "=>", "/", "^", "[", "(", ")", "]", ".", "@", "::"];
+			var frees = ["|",",", ";", "=", "+", "*", "-", "~", "!", ":", "=>", "/", "^", "[", "(", ")", "]", ".", "@", "::"];
 			for(var i=0;i<frees.length;i++){
 				chunk = unspace(chunk, frees[i]);
 			}
