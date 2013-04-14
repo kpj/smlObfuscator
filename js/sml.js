@@ -39,8 +39,29 @@ var SML = function(code, options){
 		});
 	}
 	
+	var unspace = function(chunk, char){
+		var empties = [" ", "\t", "\n"];
+		for(var j=0;j<empties.length;j++){
+			for(var i=0;i<empties.length;i++){
+				empty = empties[i];
+				while(chunk.indexOf(char+empty) >= 0) {
+					chunk = chunk.replace(char+empty, char);   
+				}
+				while(chunk.indexOf(empty+char) >= 0) {
+					chunk = chunk.replace(empty+char, char);   
+				}
+			}
+		}
+		return chunk;
+	}
+	
 	if(simpleOptimize){
 		replacedCode = SML.stringOptimizeE(replacedCode, function(chunk){
+			var frees = ["|",",", ";", "=", "+", "*", "!", ":", "=>", "/", "^", "[", "(", ")", "]", ".", "@", "::"];
+			for(var i=0;i<frees.length;i++){
+				chunk = unspace(chunk, frees[i]);
+			}
+			
 			while(chunk.indexOf("\t") >= 0) {
 				chunk = chunk.replace(/\t/g, " ");   
 			}
@@ -52,18 +73,6 @@ var SML = function(code, options){
 			}
 			while(chunk.indexOf("\n ") >= 0) {
 				chunk = chunk.replace(/\n\ /g, "\n");   
-			}
-			while(chunk.indexOf(" ;") >= 0) {
-				chunk = chunk.replace(/\ ;/g, ";");   
-			}
-			while(chunk.indexOf("; ") >= 0) {
-				chunk = chunk.replace(/;\ /g, ";");   
-			}
-			while(chunk.indexOf(";\n") >= 0) {
-				chunk = chunk.replace(/;\n/g, ";");   
-			}
-			while(chunk.indexOf("\n;") >= 0) {
-				chunk = chunk.replace(/\n;/g, ";");   
 			}
 			while(chunk.indexOf(";;") >= 0) {
 				chunk = chunk.replace(/;;/g, ";");   
