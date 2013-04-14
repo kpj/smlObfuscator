@@ -4,9 +4,11 @@
 	@param options	Options. Optional. 
 		options.removeComments Remove original comments
 		options.simpleOptimize	Simple Optimisation
+		options.removeLineBreaks	remove all new lines?
 		options.renameWords		rename words?
 		options.dicGenerator	A function which build new word dictonaries. 
 		options.exceptions	Array of words to ignore during renaming. 
+		options.preOptimize	Function to call with code before optimizing. 
  */
 var SML = function(code, options){
 	var options = (typeof options == 'undefined')?{}:options; //options
@@ -14,14 +16,28 @@ var SML = function(code, options){
 	var exceptions = (options.hasOwnProperty("exceptions"))?options.exceptions:[];
 	var removeComments = (options.hasOwnProperty("removeComments"))?options.removeComments:true;
 	var simpleOptimize = (options.hasOwnProperty("simpleOptimize"))?options.simpleOptimize:true;
+	var removeLineBreaks = (options.hasOwnProperty("removeLineBreaks"))?options.removeLineBreaks:true;
 	var renameWords = (options.hasOwnProperty("renameWords"))?options.renameWords:true;
 	var dicGenerator = (options.hasOwnProperty("dicGenerator"))?options.dicGenerator:SML.dicGenerator["static"];
+	var preOptimize = (options.hasOwnProperty("preOptimize"))?options.preOptimize:function(x){return x;};
+
 
 	var parsedCode = SML.parseComplete(code, removeComments); //parse code and structures
 	
 	var words = SML.getWords(parsedCode, exceptions); //get words
 	
 	var replacedCode = SML.buildCode(SML.replaceWords(parsedCode, dicGenerator(words)))+";";
+	
+	replacedCode = preOptimize(replacedCode);
+	
+	if(removeLineBreaks){
+		replacedCode = SML.stringOptimizeE(replacedCode, function(chunk){
+			while(chunk.indexOf("\n") >= 0) {
+				chunk = chunk.replace(/\n/g, " ");
+			}
+			return chunk;
+		});
+	}
 	
 	if(simpleOptimize){
 		replacedCode = SML.stringOptimizeE(replacedCode, function(chunk){
@@ -229,6 +245,9 @@ SML.replaceWords = function(parsedCode, dic){
 	return SML.stringOptimize(parsedCode, function(chunk){
 		return chunk.replace(/[a-zA-Z0-9_]+/g, function(old){
 			if(dic.hasOwnProperty(old)){
+				while(SML.keywords.indexOf(dic[old]) != -1){
+					dic[old] = dic[old]+"_";
+				}
 				return dic[old];
 			} else {
 				return old;
@@ -298,7 +317,6 @@ SML.dicGenerator = {
 		return res;
 	},
 };
-
 
 /*
 	A bunch of keywords in SML. 

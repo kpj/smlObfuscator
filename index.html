@@ -12,13 +12,12 @@
 						"exceptions": $("#ignore_funcs").val().split(" ").join("").split(","),
 						"dicGenerator": SML.dicGenerator[$("#replacer").val()],
 						"removeComments": $("#remove_comments").is(":checked"),
-						"simpleOptimize": $("#simple_optimize").is(":checked")
+						"simpleOptimize": $("#simple_optimize").is(":checked"),
+						"removeLineBreaks": $("#remove_lines").is(":checked"),
+						"preOptimize": function(code){
+							return ($("#add_garbage").is(":checked"))?SML.addRandomComments(code):code;
+						}
 					});
-					
-					if($("#add_garbage").is(":checked")){
-						res = SML.addRandomComments(res);
-					}
-					
 					$("#obfuscated").val(res);
 				});
 			});
@@ -32,7 +31,8 @@
 					
 					<input type="button" value="oBfUsCaTe" id="obfuscate"/><br />
 					<input type="checkbox" id="remove_comments" checked="checked">remove comments<br />
-					<input type="checkbox" id="simple_optimize" checked="checked">Enable simple optimisations<br />
+					<input type="checkbox" id="simple_optimize" checked="checked">Enable simple optimisations, 
+					<input type="checkbox" id="remove_lines">remove line breaks<br />
 					<input type="checkbox" id="add_garbage">random comments<br />
 						Variable renamer: <select id="replacer">
 						  <option value="static">None</option>
