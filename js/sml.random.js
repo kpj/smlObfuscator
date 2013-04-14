@@ -1,3 +1,97 @@
+(function(){
+SML.addRandomComments = function(code){
+	return SML.stringOptimizeE(code, function(chunk){
+		return chunk.replace(/[\n]/g, function(m){
+				if(Math.random() < 0.2){
+					return "(* "+generateRubbish()+" *)\n";
+				} else {
+					return "\n";		
+				}
+			
+		});
+	});
+};
+
+/*
+ * Random Replacer
+ */
+SML.dicGenerator.random = function(words){
+	var replacements = [];
+	var newWords = {};
+	
+	for(var i=0; i<words.length;i++){
+		var key = words[i];
+		var repl = getRandName(randomNumber(10, 20)); //random length
+		while(replacements.indexOf(repl) != -1){
+			repl = getRandName(randomNumber(10, 20));
+		}
+		replacements.push(repl);
+		newWords[key] = repl;
+	}
+	return newWords;
+}
+
+
+/*
+	This function creates a random string consisting out of "O" and "0".
+	Input:	length	- length of output string (int)
+		forbidden - array of string that is forbidden
+	Output:	name	- random string (string)
+*/
+var getRandName = function(length, forbidden) {
+
+	var pool = ["0", "O"];
+	var name = "O";
+
+	length--;
+
+	for (var i = 0 ; i < length ; i++) {
+		name += pool[Math.floor(Math.random() * pool.length)];
+	}
+
+	return name;
+}
+
+var randomNumber = function(a, b){
+	return a+Math.floor(Math.random() * (b-a));
+};
+
+
+/* generate random stuff that does nothing. */
+var generateRubbish = function(){
+	if(Math.random() < 0.8){
+		//put in a random quote
+		return randomComments[Math.floor(Math.random() * randomComments.length)];
+	} else {
+		var j = Math.floor(Math.random() * 20);
+		var stuff = function(){
+			return getRandName(randomNumber(j, 42), []);
+		}
+
+		var args = function(){
+			var stack = [];
+			for(var i=0;i<j;i++){
+				stack.push(stuff());
+			}	
+			return stack.join(", ");
+		}
+
+		var myname = stuff();
+		var res = "\nfun "+myname+"("+args()+") = nil\n";
+		for(var i=0;i<j;i++){
+			if(Math.random() < 0.2){
+				res += "| "+myname+"("+args()+") = "+stuff()+"("+args()+")\n";
+			} else if(Math.random() < 0.2){
+				res += "| "+myname+"("+args()+") = raise "+stuff()+"("+args()+")\n";
+			}
+			
+		}
+		return res;
+	}
+};
+
+
+
 /* a bunch of random comments. Feel free to add more. */
 var randomComments = [
 
@@ -61,3 +155,4 @@ var randomComments = [
 	'"Well", says the man, "you don\'t know where you are or where you’re going, but you expect me to be able to help. You\'re in the same position you were before we met, but now it\'s my fault." \n'
 
 ];
+})();

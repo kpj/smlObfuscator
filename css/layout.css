@@ -29,10 +29,6 @@ body, html {
 	overflow: auto;
 }
 
-#topbar {
-	height: 1em;  
-}
-
 #left, #right {
 	position: absolute;
 	height: 80%; 
