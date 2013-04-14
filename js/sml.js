@@ -323,6 +323,7 @@ SML.keywords =
 	"GREATER",
 
 	"o",
+	"and",
 	
 
 	/* branching & scoping */
